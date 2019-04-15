@@ -7,100 +7,245 @@
 <body>
     <h1>我的第一个标题</h1>
     <p>我的第一个段落。</p>
-    <div id="container" style="height: 100%"></div>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-       <script type="text/javascript">
-var dom = document.getElementById("container");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
-option = {
-    title: {
-        text: '堆叠区域图'
-    },
-    tooltip : {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            label: {
-                backgroundColor: '#6a7985'
-            }
-        }
-    },
-    legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : false,
-            data : ['周一','周二','周三','周四','周五','周六','周日']
-        }
-    ],
-    yAxis : [
-        {
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'邮件营销',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'联盟广告',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'视频广告',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            stack: '总量',
-            areaStyle: {normal: {}},
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            stack: '总量',
-            label: {
-                normal: {
-                    show: true,
-                    position: 'top'
-                }
-            },
-            areaStyle: {normal: {}},
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
-        }
-    ]
-};
-;
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
-}
-       </script>
+    <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 order-2">
+                    <div class="p-5">
+                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                        <div id="1" style="width: 600px; height: 400px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1555326376605"><div style="position: relative; overflow: hidden; width: 600px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas width="750" height="500" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 89px; top: 94px;">2015<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#FFC107;"></span>出口减进口: -5,757<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#607D8B;"></span>出口: 25,352<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#BDBDBD;"></span>进口: 31,109</div></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('1'));
+                            // 指定图表的配置项和数据
+                            var option = {
+                                title: {
+                                    text: '国产电视节目进出口总量（2011-2015）',
+                                },
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                                    }
+                                },
+                                legend: {
+                                    left: 'right',
+                                    data: ['出口减进口', '进口', '出口']
+                                },
+                                grid: {
+                                    left: '3%',
+                                    right: '4%',
+                                    bottom: '3%',
+                                    containLabel: true
+                                },
+                                xAxis: [{
+                                    type: 'value'
+                                }],
+                                yAxis: [{
+                                    type: 'category',
+                                    axisTick: {
+                                        show: false
+                                    },
+                                    data: ['2011', '2012', '2013', '2014', '2015']
+                                }],
+                                series: [{
+                                    name: '出口减进口',
+                                    type: 'bar',
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'inside'
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#FFC107',
+                                        },
+                                    },
+                                    data: [3867, 24484, 2327, -4419, -5757]
+                                }, {
+                                    name: '出口',
+                                    type: 'bar',
+                                    stack: '总量',
+                                    label: {
+                                        normal: {
+                                            show: true
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#607D8B',
+                                        },
+                                    },
+                                    data: [25657, 37573, 21270, 21670, 25352]
+                                }, {
+                                    name: '进口',
+                                    type: 'bar',
+                                    stack: '总量',
+                                    label: {
+                                        normal: {
+                                            show: true,
+                                            position: 'left'
+                                        }
+                                    },
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#BDBDBD',
+                                        },
+                                    },
+                                    data: [21790, 13089, 18943, 26089, 31109]
+                                }]
+                            };
+
+                            // 使用刚指定的配置项和数据显示图表。
+                            myChart.setOption(option);
+                        </script>
+                        <p><span style="font-size:10px;right:0%;position: absolute;"><br>数据来源：国家统计局-中国电视节目进出口统计年报<br>采集时间：2017年10月</span></p>
+                    </div>
+
+                </div>
+                <div class="col-md-6 order-1">
+                    <div class="p-5">
+                        <h2 class="display-4"><span style="font-size:45px">国产电视节目闯世界的反响如何？</span></h2>
+                        <p><span style="line-height:15px;">2016年全国影视节目出口额近1.2亿美元，约占该年总出口贸易额的0.006%。能达到这个成就，中国电视剧前五年的积淀也是必不可少。</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row-2 align-items-center">
+                <div class="col-md-6">
+                    <div class="p-5">
+                        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                        <div id="2" style="width: 560px; height: 400px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1555326376606"><div style="position: relative; overflow: hidden; width: 560px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas width="700" height="500" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 560px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 403px; top: 200px;">2014<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#FFC107;"></span>进口总量: 26,089<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#455A64;"></span>出口总量: 21,670</div></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('2'));
+
+                            // 指定图表的配置项和数据
+                            var option = {
+                                title: {
+                                    text: '国产电视节目进出口趋势',
+                                    subtext: '(2011年-2015年) 单位/时'
+                                },
+                                tooltip: {
+                                    trigger: 'axis'
+                                },
+                                legend: {
+                                    left: '36%',
+                                    data: ['进口总量', '出口总量']
+                                },
+                                toolbox: {
+                                    show: true,
+                                    feature: {
+                                        dataZoom: {
+                                            yAxisIndex: 'none'
+                                        },
+                                        dataView: {
+                                            readOnly: false
+                                        },
+                                        magicType: {
+                                            type: ['line', 'bar']
+                                        },
+                                        restore: {},
+                                        saveAsImage: {}
+                                    }
+                                },
+                                xAxis: {
+                                    type: 'category',
+                                    boundaryGap: false,
+                                    data: ["2011", "2012", "2013", "2014", "2015"]
+                                },
+                                yAxis: {
+                                    type: 'value',
+                                    axisLabel: {
+
+                                    }
+                                },
+                                series: [{
+                                    name: '进口总量',
+                                    type: 'line',
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#FFC107',
+                                        },
+                                    },
+                                    data: [21790, 13089, 18943, 26089, 31109],
+                                    markPoint: {
+                                        data: [{
+                                            type: 'max',
+                                            name: '最大值'
+                                        }, {
+                                            type: 'min',
+                                            name: '最小值'
+                                        }]
+                                    },
+                                    markLine: {
+                                        data: [{
+                                            type: 'average',
+                                            name: '平均值'
+                                        }]
+                                    }
+                                }, {
+                                    name: '出口总量',
+                                    type: 'line',
+                                    itemStyle: {
+                                        normal: {
+                                            color: '#455A64',
+                                        },
+                                    },
+                                    data: [25657, 37573, 21270, 21670, 25352],
+                                    markPoint: {
+                                        data: [{
+                                            name: '周最低',
+                                            value: -2,
+                                            xAxis: 1,
+                                            yAxis: -1.5
+                                        }]
+                                    },
+                                    markLine: {
+                                        data: [{
+                                                type: 'average',
+                                                name: '平均值'
+                                            },
+                                            [{
+                                                symbol: 'none',
+                                                x: '90%',
+                                                yAxis: 'max'
+                                            }, {
+                                                symbol: 'circle',
+                                                label: {
+                                                    normal: {
+                                                        position: 'start',
+                                                        formatter: '最大值'
+                                                    }
+                                                },
+                                                type: 'max',
+                                                name: '最高点'
+                                            }]
+                                        ]
+                                    }
+                                }]
+                            };
+
+
+                            //使用刚指定的配置项和数据显示图表。
+                            myChart.setOption(option);
+                        </script>
+                        <p><span style="font-size:10px;left:35%;position: absolute;">数据来源：国家统计局-中国电视节目进出口统计年报<br>采集时间：2017年10月</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-5">
+                        <h2 class="display-4"><span style="font-size:45px">2012年，发生了什么？</span></h2>
+                        <p>通过左图可以明显看出，2012年国产电视节目出口总量远远大于进口量，达到五年之最。2011年是中国的经济转型年，十二五规划指出对新型战略产业、电子信息产业等推行结构性减税，加快我国传统产业转型，一定程度上为国产剧的涌现及走出国门提供良好的社会环境。2012年文化体制改革全面推进，政府重点加大对文化产品创作生产的引导，着力构建全方位多层次宽领域的文化走出去格局，进一步增强了国产电视节目出口的热情，最终实现近五年以来的出口最高峰。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
 </body>
 </html>
