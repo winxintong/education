@@ -1,120 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>xueqianjioayu</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <script src="echarts.min.js"></script>
+
 </head>
 <body>
-    <h1>我的第一个标题</h1>
-    <p>我的第一个段落。</p>
-    <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-5 order-2">
-                    <div class="p-5">
-                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                        <div id="1" style="width: 600px; height: 400px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1555326376605"><div style="position: relative; overflow: hidden; width: 600px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas width="750" height="500" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 89px; top: 94px;">2015<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#FFC107;"></span>出口减进口: -5,757<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#607D8B;"></span>出口: 25,352<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#BDBDBD;"></span>进口: 31,109</div></div>
-                        <script type="text/javascript">
-                            // 基于准备好的dom，初始化echarts实例
-                            var myChart = echarts.init(document.getElementById('1'));
-                            // 指定图表的配置项和数据
-                            var option = {
-                                title: {
-                                    text: '国产电视节目进出口总量（2011-2015）',
-                                },
-                                tooltip: {
-                                    trigger: 'axis',
-                                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-                                    }
-                                },
-                                legend: {
-                                    left: 'right',
-                                    data: ['出口减进口', '进口', '出口']
-                                },
-                                grid: {
-                                    left: '3%',
-                                    right: '4%',
-                                    bottom: '3%',
-                                    containLabel: true
-                                },
-                                xAxis: [{
-                                    type: 'value'
-                                }],
-                                yAxis: [{
-                                    type: 'category',
-                                    axisTick: {
-                                        show: false
-                                    },
-                                    data: ['2011', '2012', '2013', '2014', '2015']
-                                }],
-                                series: [{
-                                    name: '出口减进口',
-                                    type: 'bar',
-                                    label: {
-                                        normal: {
-                                            show: true,
-                                            position: 'inside'
-                                        }
-                                    },
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#FFC107',
-                                        },
-                                    },
-                                    data: [3867, 24484, 2327, -4419, -5757]
-                                }, {
-                                    name: '出口',
-                                    type: 'bar',
-                                    stack: '总量',
-                                    label: {
-                                        normal: {
-                                            show: true
-                                        }
-                                    },
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#607D8B',
-                                        },
-                                    },
-                                    data: [25657, 37573, 21270, 21670, 25352]
-                                }, {
-                                    name: '进口',
-                                    type: 'bar',
-                                    stack: '总量',
-                                    label: {
-                                        normal: {
-                                            show: true,
-                                            position: 'left'
-                                        }
-                                    },
-                                    itemStyle: {
-                                        normal: {
-                                            color: '#BDBDBD',
-                                        },
-                                    },
-                                    data: [21790, 13089, 18943, 26089, 31109]
-                                }]
-                            };
-
-                            // 使用刚指定的配置项和数据显示图表。
-                            myChart.setOption(option);
-                        </script>
-                        <p><span style="font-size:10px;right:0%;position: absolute;"><br>数据来源：国家统计局-中国电视节目进出口统计年报<br>采集时间：2017年10月</span></p>
-                    </div>
-
-                </div>
-                <div class="col-md-6 order-1">
-                    <div class="p-5">
-                        <h2 class="display-4"><span style="font-size:45px">国产电视节目闯世界的反响如何？</span></h2>
-                        <p><span style="line-height:15px;">2016年全国影视节目出口额近1.2亿美元，约占该年总出口贸易额的0.006%。能达到这个成就，中国电视剧前五年的积淀也是必不可少。</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section>
-        <div class="container">
+	    <div class="container">
             <div class="row-2 align-items-center">
                 <div class="col-md-6">
                     <div class="p-5">
@@ -245,7 +149,7 @@
                 </div>
             </div>
         </div>
-        
+	</section>
+
 
 </body>
-</html>
